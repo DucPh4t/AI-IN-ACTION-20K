@@ -1,0 +1,280 @@
+{
+  "dataset_id": "day04_v3_helpdesk_group",
+  "dataset_role": "group",
+  "description": "Team original evaluation dataset: 5 single-turn and 5 multi-turn IT helpdesk scenarios.",
+  "allowed_failure_types": [
+    "wrong_tool",
+    "wrong_arg_value",
+    "wrong_boundary",
+    "unnecessary_tool",
+    "out_of_scope",
+    "missing_info"
+  ],
+  "cases": [
+    {
+      "id": "G01_printing_service_status",
+      "phase": "B",
+      "suite": "group",
+      "query": "Toàn bộ nhân viên phòng Sales tầng 4 không in được tài liệu hợp đồng, dịch vụ in ấn production có đang bị sự cố không?",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "check_service_status",
+            "args": {
+              "service": "printing",
+              "environment": "production"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "route_shared_service",
+        "difficulty": "medium",
+        "what_it_tests": "Sự cố in ấn diện rộng của một phòng ban phải kiểm tra shared service printing, không tra cứu máy in đơn lẻ."
+      }
+    },
+    {
+      "id": "G02_missing_asset_hardware",
+      "phase": "B",
+      "suite": "group",
+      "query": "Màn hình laptop của tôi tự dưng bị nhấp nháy liên tục khi cắm sạc, kiểm tra phần cứng giúp tôi với.",
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "clarify_missing_asset",
+        "difficulty": "medium",
+        "what_it_tests": "Khi người dùng báo lỗi phần cứng laptop nhưng không cung cấp mã tài sản, agent phải hỏi lại mã máy thay vì tự đoán."
+      }
+    },
+    {
+      "id": "G03_kb_wifi_category",
+      "phase": "B",
+      "suite": "group",
+      "query": "Cho tôi xin các bước cài đặt chứng chỉ bảo mật và cấu hình kết nối mạng Wi-Fi khách văn phòng.",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "search_kb",
+            "args": {
+              "category": "wifi"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "kb_category_filter",
+        "difficulty": "medium",
+        "what_it_tests": "Trích xuất đúng category wifi trong search_kb dù câu hỏi có chứa từ khóa bảo mật chứng chỉ."
+      }
+    },
+    {
+      "id": "G04_format_existing_findings_only",
+      "phase": "B",
+      "suite": "group",
+      "query": "Mình đã gom được các kết quả sau: 'SSO gateway timeout 504' và 'VPN auth timeout'. Hãy lập báo cáo kỹ thuật tóm tắt đặt tên là 'Incident SSO-VPN'.",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "format_incident_report",
+            "args": {
+              "template": "brief",
+              "incident_title": "Incident SSO-VPN"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "format_findings",
+        "difficulty": "medium",
+        "what_it_tests": "Khi findings đã được người dùng liệt kê rõ, agent chỉ định dạng báo cáo, không gọi lại tool kiểm tra trạng thái."
+      }
+    },
+    {
+      "id": "G05_out_of_scope_hr_interview",
+      "phase": "B",
+      "suite": "group",
+      "query": "Tôi đang chuẩn bị phỏng vấn ứng viên marketing, hãy soạn giúp tôi 5 câu hỏi tình huống chuyên môn.",
+      "failure_type": "out_of_scope",
+      "expect": {
+        "no_tool": true,
+        "behavior": "refuse"
+      },
+      "metadata": {
+        "skill": "out_of_scope_refusal",
+        "difficulty": "easy",
+        "what_it_tests": "Từ chối yêu cầu ngoài phạm vi IT Helpdesk mà không gọi bất kỳ tool nào."
+      }
+    },
+    {
+      "id": "G06_multiturn_fill_asset_software",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Kiểm tra phần mềm và bản vá trên máy giúp mình với."
+        },
+        {
+          "role": "user",
+          "content": "À mã máy dán ở đáy laptop là LT-240 nhé."
+        },
+        {
+          "role": "user",
+          "content": "Đúng rồi, chỉ cần kiểm tra nhóm software thôi."
+        }
+      ],
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "inspect_device",
+            "args": {
+              "asset_id": "LT-240",
+              "check": "software"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_carry_asset_and_check",
+        "difficulty": "hard",
+        "what_it_tests": "Kế thừa asset_id từ lượt trước và áp dụng đúng check filter ở lượt mới nhất."
+      }
+    },
+    {
+      "id": "G07_multiturn_user_correction",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tra cứu thông tin tài khoản của nhân viên EMP-1001 xem đang dùng máy gì."
+        },
+        {
+          "role": "user",
+          "content": "Khoan đã, mình đọc nhầm danh sách, người cần tra là EMP-1005 (bên Pháp lý)."
+        }
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup_user",
+            "args": {
+              "employee_id": "EMP-1005"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_employee_correction",
+        "difficulty": "medium",
+        "what_it_tests": "Thông tin nhân viên sửa lại ở lượt sau phải thay thế hoàn toàn mã cũ."
+      }
+    },
+    {
+      "id": "G08_multiturn_service_env_carryover",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Dịch vụ email trên production hiện tại có ổn định không?"
+        },
+        {
+          "role": "user",
+          "content": "Thế còn môi trường staging thì tình trạng thế nào?"
+        }
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "check_service_status",
+            "args": {
+              "service": "email",
+              "environment": "staging"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_carry_service_change_env",
+        "difficulty": "hard",
+        "what_it_tests": "Đổi môi trường sang staging nhưng vẫn giữ nguyên dịch vụ email từ lượt trước."
+      }
+    },
+    {
+      "id": "G09_multiturn_ticket_priority_change_boundary",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tạo ticket giúp tôi lỗi hỏng bàn phím laptop LT-318, mức ưu tiên medium."
+        },
+        {
+          "role": "user",
+          "content": "Sếp bảo sự cố này gấp lắm, nâng mức ưu tiên lên critical nhé."
+        },
+        {
+          "role": "user",
+          "content": "Hãy cho tôi xem lại thông tin và xác nhận trước khi gửi lên hệ thống."
+        }
+      ],
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_stale_confirmation_boundary",
+        "difficulty": "hard",
+        "what_it_tests": "Sau khi thay đổi mức ưu tiên, agent vẫn phải dừng lại ở ranh giới xin xác nhận (clarify yes_no), không được gọi create_ticket."
+      }
+    },
+    {
+      "id": "G10_multiturn_cancellation",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tạo giúp mình một ticket hỗ trợ reset mật khẩu cho tài khoản EMP-1003."
+        },
+        {
+          "role": "user",
+          "content": "À thôi đừng tạo nữa, mình vừa liên hệ trực tiếp được với quản trị viên rồi, hủy yêu cầu nhé!"
+        }
+      ],
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "no_tool": true,
+        "behavior": "refuse"
+      },
+      "metadata": {
+        "skill": "multiturn_cancellation_no_action",
+        "difficulty": "medium",
+        "what_it_tests": "Khi người dùng hủy thao tác ở lượt sau, agent hủy hành động và không gọi tool tạo ticket."
+      }
+    }
+  ]
+}

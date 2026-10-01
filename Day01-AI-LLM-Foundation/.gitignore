@@ -1,0 +1,23 @@
+# KHÔNG BAO GIỜ commit API key
+.env
+.env*
+*.key
+
+# Demo & web application files (không nằm trong bài nộp lab)
+demo/
+web/
+scratch/
+nvidia_compare.py
+openrouter_demo.py
+server.py
+app/
+*.zip
+
+# Tài liệu nội bộ
+docs/
+
+# Môi trường ảo & cache
+.venv/
+__pycache__/
+.pytest_cache/
+solution.zip

@@ -1,0 +1,25 @@
+alerts:
+  - name: high_api_latency_p95
+    severity: warning
+    condition: p95_latency_ms > 2500
+    duration: 5m
+    type: symptom-based
+    channel: slack
+    owner: oncall-ai-engineer
+    runbook: docs/alerts.md#alert-1
+  - name: high_request_error_rate
+    severity: critical
+    condition: error_rate_pct > 2.0
+    duration: 3m
+    type: symptom-based
+    channel: slack
+    owner: oncall-ai-engineer
+    runbook: docs/alerts.md#alert-2
+  - name: retrieval_failure_rate_high
+    severity: high
+    condition: retrieval_success_rate_pct < 90.0
+    duration: 5m
+    type: symptom-based
+    channel: slack
+    owner: oncall-ai-engineer
+    runbook: docs/alerts.md#alert-3

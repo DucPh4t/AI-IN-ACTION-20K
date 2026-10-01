@@ -1,0 +1,93 @@
+{
+  "project": "LearnLoop",
+  "milestone": "CP5",
+  "deadline": "2026-09-18T13:00:00+07:00",
+  "created_at": "2026-09-18T12:40:00+07:00",
+  "methodology": "Mom Test (Stanford CS177 / Sean Ellis Disappointment Protocol)",
+  "summary_metrics": {
+    "total_testers": 5,
+    "willing_users_cp1_count": 3,
+    "external_group_testers_count": 2,
+    "pass_rate_on_tasks": "100%",
+    "verbatim_quote_satisfaction": "5/5 positive on micro-summary & slide citation"
+  },
+  "testers": [
+    {
+      "id": "TESTER-01",
+      "name": "Lê Phan Việt Cường",
+      "role": "Học viên Phòng E403 - MSSV: 2A202602641",
+      "is_willing_user_cp1": true,
+      "task_assigned": "Dùng LearnLoop tra cứu và tóm tắt thuật ngữ 'Transformer' ở Slide 8, sau đó kiểm tra nguồn trích dẫn.",
+      "observation": "Bôi đen từ 'Transformer' rất nhanh; đọc xong micro-summary thì gật đầu nhưng ngập ngừng ở thẻ trích dẫn [Trang 8] mất 4 giây trước khi dám click.",
+      "friction_point": "Thẻ trích dẫn [Trang 8] lúc đầu trông giống text tĩnh (không gạch chân/icon rõ ràng), khiến người dùng phân vân có click được không.",
+      "verbatim_quote": "Ủa bấm vào cái số trang [Trang 8] này là nó tự cuộn slide qua trang đó luôn hả? Ban đầu tưởng chỉ là text ghi chú thường thôi chứ, phải rê chuột vào mới thấy đổi con trỏ!",
+      "severity": "Medium",
+      "action_decision": "Làm ngay trước Demo: Thêm icon liên kết nhỏ ↗, gạch chân chấm (dotted) và tooltip 'Nhấp để mở Slide'."
+    },
+    {
+      "id": "TESTER-02",
+      "name": "Nguyễn Đức Danh",
+      "role": "Học viên Phòng E403 - MSSV: 2A202602722",
+      "is_willing_user_cp1": true,
+      "task_assigned": "Thử bôi đen một chuỗi ký tự vô nghĩa (ví dụ '-->') khi đang đọc bài để kiểm tra phản ứng của hệ thống.",
+      "observation": "Hệ thống chặn bằng Dual-layer Guardrail tại chỗ không tốn token; người dùng cười thích thú nhưng toast cảnh báo biến mất hơi nhanh.",
+      "friction_point": "Hộp cảnh báo Guardrail màu vàng tự biến mất sau 2.5s khiến người dùng chưa kịp đọc hết dòng lý do vì sao bị chặn.",
+      "verbatim_quote": "Ủa cái thông báo màu vàng báo 'đoạn chọn quá ngắn hoặc không mang nghĩa học thuật' biến mất hơi nhanh đấy, tôi mới đọc được nửa câu là nó lặn mất rồi, nên để tầm 4-5 giây hoặc có nút bấm tắt.",
+      "severity": "Low",
+      "action_decision": "Làm ngay trước Demo: Kéo dài thời gian hiển thị toast từ 2.5s lên 4.5s và thêm nút '✕' đóng chủ động."
+    },
+    {
+      "id": "TESTER-03",
+      "name": "Trần Đức Anh",
+      "role": "Học viên Phòng E403 - Lớp 3A",
+      "is_willing_user_cp1": true,
+      "task_assigned": "Sử dụng tính năng Socratic Probing để đào sâu sự khác biệt giữa RNN và Transformer sau câu trả lời cơ bản.",
+      "observation": "Đọc xong câu trả lời, bấm vào nút gợi ý [So sánh với RNN]; câu trả lời mở rộng hiện ra bên dưới; người dùng hài lòng nhưng muốn rõ trạng thái lưu.",
+      "friction_point": "Người dùng phân vân không biết bấm nút đào sâu thì câu trả lời trước đó có bị ghi đè/mất dấu không.",
+      "verbatim_quote": "Cái này hay này, hỏi bot cũ nó nói một tràng 1.500 chữ đọc mỏi cả mắt, cái này nó cho nút chọn hướng hỏi tiếp đỡ phải ngồi nghĩ prompt. Nhưng mà bấm xong có lưu lại câu trước đó không hay nó đè mất?",
+      "severity": "Medium",
+      "action_decision": "Làm ngay trước Demo: Hiển thị dạng Accordion nối tiếp, gắn nhãn 'Đang xem tiếp: Nhánh đào sâu' khẳng định câu trả lời gốc vẫn còn nguyên."
+    },
+    {
+      "id": "TESTER-04",
+      "name": "Phạm Thị Thu Trang",
+      "role": "Học viên nhóm E402 - Lớp 3B",
+      "is_willing_user_cp1": false,
+      "task_assigned": "Tra cứu định nghĩa 'Cơ chế Attention' và sao chép kết quả để đưa vào ứng dụng ghi chú cá nhân (Notion).",
+      "observation": "Nhận được phản hồi 180 ký tự ngắn gọn, đọc hiểu ngay; sau đó dùng chuột bôi đen toàn bộ popup để Ctrl+C sang Notion.",
+      "friction_point": "Chưa có nút 'Sao chép nhanh' (1-click copy), phải quét chuột thủ công dễ bị bôi nhầm ra vùng canvas.",
+      "verbatim_quote": "Nội dung trích dẫn transcript khớp đúng lời thầy giảng hôm qua, rất chuẩn! Cơ mà nhóm nên thêm cái nút copy nhanh câu trả lời vào góc phải, chứ tôi học hay vừa nghe vừa paste vào Notion, bôi đen bằng tay trên web hay bị trượt.",
+      "severity": "Medium",
+      "action_decision": "Làm ngay trước Demo: Bổ sung nút bấm icon Clipboard (Sao chép nhanh) ở góc trên bên phải popup giải thích."
+    },
+    {
+      "id": "TESTER-05",
+      "name": "Nguyễn Thanh Hải",
+      "role": "Học viên nhóm E404 - Lớp 3A",
+      "is_willing_user_cp1": false,
+      "task_assigned": "Nhập câu hỏi tổng hợp: 'cho tôi 5 loại mô hình xử lý ngôn ngữ được dùng nhiều nhất' và kiểm chứng số trang slide trích dẫn.",
+      "observation": "Hệ thống phản hồi đúng 5 mô hình trên Slide Trang 8 (không bịa trang 304). Người dùng bấm link kiểm tra khớp 100%.",
+      "friction_point": "Trên laptop 13 inch, thanh chat sidebar chiếm 380px làm thu hẹp không gian hiển thị slide PDF.",
+      "verbatim_quote": "Chuẩn Trang 8 luôn, không bịa trang 304 như con bot cũ của VLearn! Nhưng trên con máy 13 inch của mình cái sidebar bên phải hơi to, nếu có nút thu nhỏ hoặc dock xuống dưới thì nhìn slide rộng hơn.",
+      "severity": "Low",
+      "action_decision": "Giữ nguyên có lý do & Đưa vào Backlog: Giữ nguyên 380px cho màn hình máy chiếu Demo CP6; đưa Responsive Collapsible Sidebar vào Roadmap tuần sau."
+    }
+  ],
+  "synthesis": {
+    "most_common_theme": "100% học viên đánh giá cao Micro-summary <250 ký tự và khả năng nhảy trực tiếp đến trang slide thật; có nhu cầu cao về thao tác sao chép nhanh và nhận diện hyperlink.",
+    "changes_made_for_demo": [
+      "Tích hợp nút Quick Copy (1-click Clipboard Copy) góc trên bên phải khung giải thích.",
+      "Bổ sung icon liên kết nhỏ ↗, gạch chân chấm (dotted) và tooltip cho Citation Link.",
+      "Tăng thời gian hiển thị toast Guardrail từ 2.5s lên 4.5s kèm nút đóng thủ công."
+    ],
+    "retained_with_rationale": [
+      "Giữ nguyên 2 lựa chọn gợi ý Socratic Probing để tránh quá tải nhận thức (Cognitive Overload).",
+      "Giữ nguyên bề rộng Sidebar 380px tối ưu hiển thị máy chiếu hội trường Demo CP6."
+    ],
+    "backlog_for_slide_6": [
+      "Tích hợp Webhook tự động đồng bộ ghi chú sang Notion / Obsidian.",
+      "Hỗ trợ giao diện Responsive Floating Dock cho màn hình nhỏ 13 inch và tablet.",
+      "Ngân hàng câu hỏi Socratic thích ứng theo năng lực cá nhân học viên."
+    ]
+  }
+}

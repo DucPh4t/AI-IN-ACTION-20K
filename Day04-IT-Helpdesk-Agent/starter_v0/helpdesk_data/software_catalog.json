@@ -1,0 +1,78 @@
+{
+  "catalog_version": "2026.3",
+  "updated_at": "2026-09-14T08:00:00+07:00",
+  "software_list": [
+    {
+      "name": "Zoom",
+      "category": "communication",
+      "approval_status": "approved",
+      "allowed_versions": "5.17+",
+      "install_method": "Self-Service Portal",
+      "notes": "Approved for internal and client video conferencing."
+    },
+    {
+      "name": "Slack",
+      "category": "communication",
+      "approval_status": "approved",
+      "allowed_versions": "4.38+",
+      "install_method": "Self-Service Portal",
+      "notes": "Primary corporate communication tool."
+    },
+    {
+      "name": "Visual Studio Code",
+      "category": "development",
+      "approval_status": "approved",
+      "allowed_versions": "1.87+",
+      "install_method": "Self-Service Portal",
+      "notes": "Approved code editor. Extensions must come from trusted marketplace."
+    },
+    {
+      "name": "Docker Desktop",
+      "category": "development",
+      "approval_status": "approved",
+      "allowed_versions": "4.28+",
+      "install_method": "Self-Service Portal",
+      "notes": "Approved for developers. Requires corporate license assignment."
+    },
+    {
+      "name": "Google Chrome",
+      "category": "browser",
+      "approval_status": "approved",
+      "allowed_versions": "122+",
+      "install_method": "Standard Pre-installed Image",
+      "notes": "Default enterprise web browser managed by corporate policy."
+    },
+    {
+      "name": "AnyDesk",
+      "category": "remote_access",
+      "approval_status": "restricted",
+      "allowed_versions": "7.0+",
+      "install_method": "IT Security Exception Ticket Required",
+      "notes": "Restricted remote desktop tool. Security approval and justification required."
+    },
+    {
+      "name": "TeamViewer",
+      "category": "remote_access",
+      "approval_status": "restricted",
+      "allowed_versions": "15.0+",
+      "install_method": "IT Security Exception Ticket Required",
+      "notes": "Restricted remote control tool. Cannot be used without prior written authorization."
+    },
+    {
+      "name": "Telegram",
+      "category": "communication",
+      "approval_status": "banned",
+      "allowed_versions": "none",
+      "install_method": "prohibited",
+      "notes": "Prohibited on corporate assets due to data exfiltration policy."
+    },
+    {
+      "name": "BitTorrent",
+      "category": "peer_to_peer",
+      "approval_status": "banned",
+      "allowed_versions": "none",
+      "install_method": "prohibited",
+      "notes": "P2P software strictly prohibited on all company networks and devices."
+    }
+  ]
+}
