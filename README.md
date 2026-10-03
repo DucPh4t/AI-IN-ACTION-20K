@@ -41,6 +41,7 @@ Dự án được cấu trúc theo từng ngày học (Day 01 đến Day 14) v�
 | **Day 12** | [`Day12-Cloud-Services-Deployment`](./Day12-Cloud-Services-Deployment) | Đóng gói Docker, xây dựng API FastAPI và triển khai hạ tầng Cloud. |
 | **Day 13** | [`Day13-Monitoring-LLMOps`](./Day13-Monitoring-LLMOps) | Giám sát toàn diện: Distributed Tracing Langfuse, SLOs, Metrics & Alerts. |
 | **Day 14** | [`Day14-AI-Evaluation-Benchmark`](./Day14-AI-Evaluation-Benchmark) | Pipeline kiểm thử tự động: RAGAS Metrics, LLM-as-a-Judge, Golden Dataset & CI/CD Gate. |
+| **Day 16** | [`Day16-Advance-Agentic-Arena`](./Day16-Advance-Agentic-Arena) | **Phase 2 — Agent Arena:** 5 lớp Middleware bảo vệ Agent ReAct (Critic, Citation, Injection, Budget, Retry). |
 
 ---
 
