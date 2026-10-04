@@ -43,6 +43,7 @@ Dự án được cấu trúc theo từng ngày học (Day 01 đến Day 14) v�
 | **Day 14** | [`Day14-AI-Evaluation-Benchmark`](./Day14-AI-Evaluation-Benchmark) | Pipeline kiểm thử tự động: RAGAS Metrics, LLM-as-a-Judge, Golden Dataset & CI/CD Gate. |
 | **Day 16** | [`Day16-Advance-Agentic-Arena`](./Day16-Advance-Agentic-Arena) | **Phase 2 — Agent Arena:** 5 lớp Middleware bảo vệ Agent ReAct (Critic, Citation, Injection, Budget, Retry). |
 | **Day 17** | [`Day17-Memory-Systems-Agent`](./Day17-Memory-Systems-Agent) | **Phase 2 — Memory Systems:** Kiến trúc bộ nhớ 3 tầng (Short-term, User.md Persistent, Compact Memory nén ngữ cảnh dài). |
+| **Day 18** | [`Day18-Production-RAG`](./Day18-Production-RAG) | **Phase 2 — Production RAG:** Pipeline RAG chuẩn Production với Hierarchical/Structure Chunking, Qdrant + BM25 Hybrid Search (RRF), Cross-Encoder Reranking, Đánh giá RAGAS & Contextual Enrichment. |
 
 ---
 
