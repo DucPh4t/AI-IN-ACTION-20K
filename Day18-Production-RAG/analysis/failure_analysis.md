@@ -2,7 +2,7 @@
 
 **Họ và tên học viên:** Nguyễn Đức Phát  
 **MSSV:** 2A202602753  
-**Khóa:** K4 - Track 3A  
+**Khóa:** K4 - Track 3B  
 
 ---
 

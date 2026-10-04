@@ -2,7 +2,7 @@
 
 **Họ và tên:** Nguyễn Đức Phát  
 **MSSV:** 2A202602753  
-**Lớp / Khóa:** K4 - Track 3A  
+**Lớp / Khóa:** K4 - Track 3B  
 **Ngày hoàn thành:** 04/10/2026  
 
 ---
