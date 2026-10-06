@@ -1,0 +1,22 @@
+[project]
+name = "lab-deepagents"
+version = "0.1.0"
+description = "Lab: agent harness, self-evolving agents and multi-agent with Deep Agents"
+requires-python = ">=3.11"
+dependencies = [
+    "deepagents==0.7.21",
+    "langchain-openai>=1.0",
+    "python-dotenv>=1.0",
+    "pytest>=8.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q -p no:cacheprovider"

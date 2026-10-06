@@ -45,6 +45,7 @@ Dự án được cấu trúc theo từng ngày học (Day 01 đến Day 14) v�
 | **Day 17** | [`Day17-Memory-Systems-Agent`](./Day17-Memory-Systems-Agent) | **Phase 2 — Memory Systems:** Kiến trúc bộ nhớ 3 tầng (Short-term, User.md Persistent, Compact Memory nén ngữ cảnh dài). |
 | **Day 18** | [`Day18-Production-RAG`](./Day18-Production-RAG) | **Phase 2 — Production RAG:** Pipeline RAG chuẩn Production với Hierarchical/Structure Chunking, Qdrant + BM25 Hybrid Search (RRF), Cross-Encoder Reranking, Đánh giá RAGAS & Contextual Enrichment. |
 | **Day 19** | [`Day19-GraphRAG-Knowledge-Graphs`](./Day19-GraphRAG-Knowledge-Graphs) | **Phase 2 — Knowledge Graph & GraphRAG:** Xây dựng Knowledge Graph liên kết đa nguồn (Luật BLHS & Tin tức án ma túy) trên Neo4j, Entity Linking, Cypher Multi-hop traversal và so sánh Flat RAG vs GraphRAG Benchmark. |
+| **Day 20** | [`Day20-Advance-Multi-Agents`](./Day20-Advance-Multi-Agents) | **Phase 2 — Advance Multi-Agents & Self-Evolving Skills:** Hệ thống Agentic tự tiến hóa với Deep Agents harness, phân tách đa tác tử (Subagents: explorer, implementer, reviewer), Skill Curator tự học và sinh SKILL.md từ thất bại quá khứ, giao thức đóng băng (Freeze protocol) và Red-Teaming phòng thủ an toàn. |
 
 
 ---
