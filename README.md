@@ -46,6 +46,7 @@ Dự án được cấu trúc theo từng ngày học (Day 01 đến Day 14) v�
 | **Day 18** | [`Day18-Production-RAG`](./Day18-Production-RAG) | **Phase 2 — Production RAG:** Pipeline RAG chuẩn Production với Hierarchical/Structure Chunking, Qdrant + BM25 Hybrid Search (RRF), Cross-Encoder Reranking, Đánh giá RAGAS & Contextual Enrichment. |
 | **Day 19** | [`Day19-GraphRAG-Knowledge-Graphs`](./Day19-GraphRAG-Knowledge-Graphs) | **Phase 2 — Knowledge Graph & GraphRAG:** Xây dựng Knowledge Graph liên kết đa nguồn (Luật BLHS & Tin tức án ma túy) trên Neo4j, Entity Linking, Cypher Multi-hop traversal và so sánh Flat RAG vs GraphRAG Benchmark. |
 | **Day 20** | [`Day20-Advance-Multi-Agents`](./Day20-Advance-Multi-Agents) | **Phase 2 — Advance Multi-Agents & Self-Evolving Skills:** Hệ thống Agentic tự tiến hóa với Deep Agents harness, phân tách đa tác tử (Subagents: explorer, implementer, reviewer), Skill Curator tự học và sinh SKILL.md từ thất bại quá khứ, giao thức đóng băng (Freeze protocol) và Red-Teaming phòng thủ an toàn. |
+| **Day 21** | [`Day21-Fine-Tuning-LLMs`](./Day21-Fine-Tuning-LLMs) | **Phase 2 — Fine-tuning LLMs:** Khung đo LoRA/QLoRA trên Qwen3.5, Mask Proof ngược, 3 Baselines đóng băng, giải phẫu 4 cấu hình sai, cổng hồi quy (Regression Gate) kiểm soát quên thảm họa (Catastrophic Forgetting). |
 
 
 ---
