@@ -53,3 +53,10 @@ htmlcov/
 # Logs & Temporary files
 *.log
 *.sqlite3
+
+# Large Model Weights & Archives
+*.safetensors
+*.bin
+*.pt
+*.zip
+adapters/*/
