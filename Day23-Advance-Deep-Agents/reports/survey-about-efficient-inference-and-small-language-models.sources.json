@@ -1,0 +1,74 @@
+[
+  {
+    "n": 1,
+    "id": "2501.18107",
+    "url": "https://huggingface.co/papers/2501.18107",
+    "title": "Scaling Inference-Efficient Language Models",
+    "date": "2025-01-30",
+    "source": "hf-search"
+  },
+  {
+    "n": 2,
+    "id": "2402.16363",
+    "url": "https://arxiv.org/abs/2402.16363",
+    "title": "LLM Inference Unveiled: Survey and Roofline Model Insights",
+    "date": "2024-02-26",
+    "source": "arxiv"
+  },
+  {
+    "n": 3,
+    "id": "2404.14294",
+    "url": "https://arxiv.org/abs/2404.14294",
+    "title": "A Survey on Efficient Inference for Large Language Models",
+    "date": "2024-04-22",
+    "source": "arxiv"
+  },
+  {
+    "n": 4,
+    "id": "2502.04420",
+    "url": "https://huggingface.co/papers/2502.04420",
+    "title": "KVTuner: Sensitivity-Aware Layer-Wise Mixed-Precision KV Cache Quantization",
+    "date": "2025-02-06",
+    "source": "hf-search"
+  },
+  {
+    "n": 5,
+    "id": "2505.22179",
+    "url": "https://huggingface.co/papers/2505.22179",
+    "title": "Speculative Decoding Meets Quantization: Compatibility Evaluation and Hierarchical Framework Design",
+    "date": "2025-05-28",
+    "source": "hf-search"
+  },
+  {
+    "n": 6,
+    "id": "2610.08917",
+    "url": "https://huggingface.co/papers/2610.08917",
+    "title": "CARE: Certifying Acceleration for Vision-Language-Action Inference",
+    "date": "2026-10-06",
+    "source": "hf-daily"
+  },
+  {
+    "n": 7,
+    "id": "2609.34344",
+    "url": "https://huggingface.co/papers/2609.34344",
+    "title": "Learning to Steer, Steering to See: Unveiling the Geometry of RLVR in Large Language Models via Trainable Vectors",
+    "date": "2026-09-28",
+    "source": "hf-daily"
+  },
+  {
+    "n": 8,
+    "id": "2405.10938",
+    "url": "https://huggingface.co/papers/2405.10938",
+    "title": "Observational Scaling Laws and the Predictability of Language Model Performance",
+    "date": "2024-05-17",
+    "source": "hf-search"
+  },
+  {
+    "n": 9,
+    "id": "2402.17764",
+    "url": "https://arxiv.org/abs/2402.17764",
+    "title": "The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits",
+    "date": "2024-02-27",
+    "source": "arxiv"
+  }
+]

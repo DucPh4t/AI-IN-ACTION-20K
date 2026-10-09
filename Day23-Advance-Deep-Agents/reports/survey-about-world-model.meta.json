@@ -1,0 +1,23 @@
+{
+  "topic": "survey about world model",
+  "model": "google_genai:gemini-3.1-flash-lite",
+  "elapsed_s": 1662.2,
+  "subagent_calls": 4,
+  "tool_calls": {
+    "write_todos": 2,
+    "execute": 3,
+    "task": 4,
+    "read_file": 3,
+    "write_file": 2
+  },
+  "tokens": {
+    "input": 119609,
+    "output": 3622
+  },
+  "n_sources": 12,
+  "source_families": [
+    "arxiv",
+    "hf-daily",
+    "hf-search"
+  ]
+}

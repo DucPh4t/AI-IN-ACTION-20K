@@ -48,7 +48,7 @@ Dự án được cấu trúc theo từng ngày học (Day 01 đến Day 14) v�
 | **Day 20** | [`Day20-Advance-Multi-Agents`](./Day20-Advance-Multi-Agents) | **Phase 2 — Advance Multi-Agents & Self-Evolving Skills:** Hệ thống Agentic tự tiến hóa với Deep Agents harness, phân tách đa tác tử (Subagents: explorer, implementer, reviewer), Skill Curator tự học và sinh SKILL.md từ thất bại quá khứ, giao thức đóng băng (Freeze protocol) và Red-Teaming phòng thủ an toàn. |
 | **Day 21** | [`Day21-Fine-Tuning-LLMs`](./Day21-Fine-Tuning-LLMs) | **Phase 2 — Fine-tuning LLMs:** Khung đo LoRA/QLoRA trên Qwen3.5, Mask Proof ngược, 3 Baselines đóng băng, giải phẫu 4 cấu hình sai, cổng hồi quy (Regression Gate) kiểm soát quên thảm họa (Catastrophic Forgetting). |
 | **Day 22** | [`Day22-DPO-ORPO-Alignment`](./Day22-DPO-ORPO-Alignment) | **Phase 2 — Direct Preference Optimization (DPO) & ORPO:** Căn chỉnh mô hình không cần Reward Model riêng, giải phẫu Likelihood Displacement, huấn luyện DPO LoRA trên Qwen3-4B tiếng Việt, đánh giá hội đồng Judge (Skywork Reward Model) và kiểm soát thiên vị độ dài (Length Bias). |
-
+| **Day 23** | [`Day23-Advance-Deep-Agents`](./Day23-Advance-Deep-Agents) | **Phase 2 — Deep Research Agent with Deep Agents & Sandbox:** Hệ thống tự động nghiên cứu học thuật phân cấp đa nguồn (arXiv, Hugging Face Daily/Search, Exa Web), cách ly môi trường Docker/Daytona sandbox, xác thực trích dẫn tự động theo thuật toán (Citation Validator & Finalizer), tổng hợp 5 báo cáo chuyên sâu đạt chuẩn 100% Rubric. |
 
 ---
 

@@ -1,0 +1,98 @@
+[
+  {
+    "n": 1,
+    "id": "2501.09233",
+    "url": "https://arxiv.org/abs/2501.09233",
+    "title": "Redefining Affordance via Computational Rationality",
+    "date": "2025-01-16",
+    "source": "arxiv"
+  },
+  {
+    "n": 2,
+    "id": "2512.19133",
+    "url": "https://huggingface.co/papers/2512.19133",
+    "title": "WorldRFT: Latent World Model Planning with Reinforcement Fine-Tuning for Autonomous Driving",
+    "date": "2025-12-22",
+    "source": "hf-search"
+  },
+  {
+    "n": 3,
+    "id": "2607.23969",
+    "url": "https://arxiv.org/abs/2607.23969",
+    "title": "LeapBot-WA: World-Anchor Action Models via Predictive Latent Alignments",
+    "date": "2026-07-27",
+    "source": "arxiv"
+  },
+  {
+    "n": 4,
+    "id": "2511.05963",
+    "url": "https://huggingface.co/papers/2511.05963",
+    "title": "Next-Latent Prediction Transformers Learn Compact World Models",
+    "date": "2025-11-08",
+    "source": "hf-search"
+  },
+  {
+    "n": 5,
+    "id": "2608.24855",
+    "url": "https://arxiv.org/abs/2608.24855",
+    "title": "LeFlow: Generative Latent Flow Planning for World Models",
+    "date": "2026-08-25",
+    "source": "arxiv"
+  },
+  {
+    "n": 6,
+    "id": "2512.13030",
+    "url": "https://huggingface.co/papers/2512.13030",
+    "title": "Motus: A Unified Latent Action World Model",
+    "date": "2025-12-15",
+    "source": "hf-search"
+  },
+  {
+    "n": 7,
+    "id": "2609.10243",
+    "url": "https://arxiv.org/abs/2609.10243",
+    "title": "RoboFolDeX: A Physical-World Benchmark for Long-Horizon Robotic Manipulation of Deformable Objects",
+    "date": "2026-09-09",
+    "source": "arxiv"
+  },
+  {
+    "n": 8,
+    "id": "2609.13236",
+    "url": "https://arxiv.org/abs/2609.13236",
+    "title": "Self-Evolving AI for Humanoids: Mechanisms, Safety, and Evaluation of Post-Deployment Self-Improvement",
+    "date": "2026-09-02",
+    "source": "arxiv"
+  },
+  {
+    "n": 9,
+    "id": "2606.00090",
+    "url": "https://huggingface.co/papers/2606.00090",
+    "title": "Silent Failures in Physical AI: A Literature Review of Runtime Action Authorization for Autonomous Systems",
+    "date": "2026-05-23",
+    "source": "hf-search"
+  },
+  {
+    "n": 10,
+    "id": "2610.12299",
+    "url": "https://huggingface.co/papers/2610.12299",
+    "title": "Multi-Agent Egocentric World Model with Fine-Grained Embodied Interaction",
+    "date": "2026-10-08",
+    "source": "hf-daily"
+  },
+  {
+    "n": 11,
+    "id": "2605.08567",
+    "url": "https://huggingface.co/papers/2605.08567",
+    "title": "ACWM-Phys: Investigating Generalized Physical Interaction in Action-Conditioned Video World Models",
+    "date": "2026-05-09",
+    "source": "hf-search"
+  },
+  {
+    "n": 12,
+    "id": "2610.12468",
+    "url": "https://huggingface.co/papers/2610.12468",
+    "title": "DreamTrue: Action-Faithful Robot World Model with Counterfactual Post-Training",
+    "date": "2026-10-08",
+    "source": "hf-daily"
+  }
+]
