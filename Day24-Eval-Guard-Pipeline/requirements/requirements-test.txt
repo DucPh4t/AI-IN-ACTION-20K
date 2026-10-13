@@ -1,0 +1,5 @@
+# Minimal reproducible offline test environment (no ML models, NeMo or compiler needed).
+pytest==9.0.2
+PyYAML==6.0.3
+python-dotenv==1.2.2
+jsonschema==4.25.0

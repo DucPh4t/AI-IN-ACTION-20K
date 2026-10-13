@@ -1,0 +1,6 @@
+# Colang 1.0. Input/output flows dùng built-in self check rails của NeMo 0.10.0.
+# Chính sách kiểm tra được khai báo trong prompts của config.yml.
+# Không khai báo lại các flow hệ thống hoặc action check_facts chưa đăng ký.
+
+define bot refuse to respond
+  "Xin lỗi, tôi không thể thực hiện yêu cầu này. Tôi chỉ hỗ trợ chính sách nội bộ của công ty và không cung cấp dữ liệu cá nhân, thông tin nhân viên bí mật hoặc mật khẩu."

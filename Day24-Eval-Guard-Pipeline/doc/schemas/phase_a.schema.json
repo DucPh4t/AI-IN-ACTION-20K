@@ -1,0 +1,540 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Phase A evidence",
+  "type": "object",
+  "required": [
+    "metadata",
+    "total_questions",
+    "per_question",
+    "per_distribution",
+    "failure_clusters",
+    "bottom_10"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": [
+        "format_version",
+        "run_kind",
+        "models",
+        "created_at",
+        "source_sha256"
+      ],
+      "properties": {
+        "format_version": {
+          "const": 2
+        },
+        "run_kind": {
+          "const": "live"
+        },
+        "models": {
+          "type": "object",
+          "required": [
+            "generation",
+            "evaluator",
+            "judge",
+            "guard"
+          ],
+          "properties": {
+            "generation": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "uniqueItems": true
+            },
+            "evaluator": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "uniqueItems": true,
+              "minItems": 1
+            },
+            "judge": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "uniqueItems": true,
+              "maxItems": 0
+            },
+            "guard": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "uniqueItems": true,
+              "maxItems": 0
+            }
+          },
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "format": "date-time"
+        },
+        "source_sha256": {
+          "type": "object",
+          "required": [
+            "answers_50q.json",
+            "test_set_50q.json"
+          ],
+          "properties": {
+            "answers_50q.json": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "test_set_50q.json": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "total_questions": {
+      "const": 50
+    },
+    "per_question": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "question_id",
+          "question",
+          "answer",
+          "contexts",
+          "ground_truth",
+          "distribution",
+          "faithfulness",
+          "answer_relevancy",
+          "context_precision",
+          "context_recall"
+        ],
+        "properties": {
+          "question_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "answer": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "contexts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          },
+          "ground_truth": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "distribution": {
+            "enum": [
+              "factual",
+              "multi_hop",
+              "adversarial"
+            ]
+          },
+          "faithfulness": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "answer_relevancy": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "context_precision": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "context_recall": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      },
+      "minItems": 50,
+      "maxItems": 50
+    },
+    "per_distribution": {
+      "type": "object",
+      "required": [
+        "factual",
+        "multi_hop",
+        "adversarial"
+      ],
+      "properties": {
+        "factual": {
+          "type": "object",
+          "required": [
+            "count",
+            "faithfulness",
+            "answer_relevancy",
+            "context_precision",
+            "context_recall",
+            "avg_score"
+          ],
+          "properties": {
+            "count": {
+              "const": 20
+            },
+            "faithfulness": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "answer_relevancy": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "context_precision": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "context_recall": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "avg_score": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        },
+        "multi_hop": {
+          "type": "object",
+          "required": [
+            "count",
+            "faithfulness",
+            "answer_relevancy",
+            "context_precision",
+            "context_recall",
+            "avg_score"
+          ],
+          "properties": {
+            "count": {
+              "const": 20
+            },
+            "faithfulness": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "answer_relevancy": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "context_precision": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "context_recall": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "avg_score": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        },
+        "adversarial": {
+          "type": "object",
+          "required": [
+            "count",
+            "faithfulness",
+            "answer_relevancy",
+            "context_precision",
+            "context_recall",
+            "avg_score"
+          ],
+          "properties": {
+            "count": {
+              "const": 10
+            },
+            "faithfulness": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "answer_relevancy": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "context_precision": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "context_recall": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "avg_score": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        }
+      }
+    },
+    "failure_clusters": {
+      "type": "object",
+      "required": [
+        "matrix",
+        "dominant_failure_distribution",
+        "dominant_failure_metric",
+        "insight"
+      ],
+      "properties": {
+        "matrix": {
+          "type": "object",
+          "required": [
+            "faithfulness",
+            "answer_relevancy",
+            "context_precision",
+            "context_recall"
+          ],
+          "properties": {
+            "faithfulness": {
+              "type": "object",
+              "required": [
+                "factual",
+                "multi_hop",
+                "adversarial"
+              ],
+              "properties": {
+                "factual": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "multi_hop": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "adversarial": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            },
+            "answer_relevancy": {
+              "type": "object",
+              "required": [
+                "factual",
+                "multi_hop",
+                "adversarial"
+              ],
+              "properties": {
+                "factual": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "multi_hop": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "adversarial": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            },
+            "context_precision": {
+              "type": "object",
+              "required": [
+                "factual",
+                "multi_hop",
+                "adversarial"
+              ],
+              "properties": {
+                "factual": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "multi_hop": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "adversarial": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            },
+            "context_recall": {
+              "type": "object",
+              "required": [
+                "factual",
+                "multi_hop",
+                "adversarial"
+              ],
+              "properties": {
+                "factual": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "multi_hop": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "adversarial": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        },
+        "dominant_failure_distribution": {
+          "enum": [
+            "factual",
+            "multi_hop",
+            "adversarial"
+          ]
+        },
+        "dominant_failure_metric": {
+          "enum": [
+            "faithfulness",
+            "answer_relevancy",
+            "context_precision",
+            "context_recall"
+          ]
+        },
+        "insight": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "distribution_avg_scores": {
+          "type": "object",
+          "required": [
+            "factual",
+            "multi_hop",
+            "adversarial"
+          ],
+          "properties": {
+            "factual": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "multi_hop": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "adversarial": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        }
+      }
+    },
+    "bottom_10": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "rank",
+          "question_id",
+          "distribution",
+          "question",
+          "avg_score",
+          "worst_metric",
+          "diagnosis",
+          "suggested_fix"
+        ],
+        "properties": {
+          "rank": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10
+          },
+          "question_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "distribution": {
+            "enum": [
+              "factual",
+              "multi_hop",
+              "adversarial"
+            ]
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "avg_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "worst_metric": {
+            "enum": [
+              "faithfulness",
+              "answer_relevancy",
+              "context_precision",
+              "context_recall"
+            ]
+          },
+          "diagnosis": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "suggested_fix": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        }
+      },
+      "minItems": 10,
+      "maxItems": 10
+    }
+  }
+}

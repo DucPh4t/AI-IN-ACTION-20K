@@ -1,0 +1,406 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Phase B evidence",
+  "type": "object",
+  "required": [
+    "metadata",
+    "pair_sources",
+    "pairwise_results",
+    "binary_judgments",
+    "calibration",
+    "bias_report"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": [
+        "format_version",
+        "run_kind",
+        "models",
+        "created_at",
+        "source_sha256"
+      ],
+      "properties": {
+        "format_version": {
+          "const": 2
+        },
+        "run_kind": {
+          "const": "live"
+        },
+        "models": {
+          "type": "object",
+          "required": [
+            "generation",
+            "evaluator",
+            "judge",
+            "guard"
+          ],
+          "properties": {
+            "generation": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "uniqueItems": true
+            },
+            "evaluator": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "uniqueItems": true,
+              "maxItems": 0
+            },
+            "judge": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "uniqueItems": true,
+              "minItems": 1
+            },
+            "guard": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "uniqueItems": true,
+              "maxItems": 0
+            }
+          },
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "format": "date-time"
+        },
+        "source_sha256": {
+          "type": "object",
+          "required": [
+            "answers_50q.json",
+            "test_set_50q.json",
+            "human_labels_10q.json"
+          ],
+          "properties": {
+            "answers_50q.json": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "test_set_50q.json": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "human_labels_10q.json": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "pair_sources": {
+      "type": "object",
+      "required": [
+        "A",
+        "B",
+        "reference"
+      ],
+      "properties": {
+        "A": {
+          "const": "artifacts/answers_50q.json:answer"
+        },
+        "B": {
+          "const": "fixtures/human_labels_10q.json:model_answer"
+        },
+        "reference": {
+          "const": "fixtures/test_set_50q.json:ground_truth"
+        }
+      },
+      "additionalProperties": false
+    },
+    "pairwise_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "question_id",
+          "question",
+          "answer_a",
+          "answer_b",
+          "winner_pass1",
+          "winner_pass2",
+          "final_winner",
+          "position_consistent",
+          "reasoning_pass1",
+          "reasoning_pass2",
+          "scores_pass1",
+          "scores_pass2"
+        ],
+        "properties": {
+          "question_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "answer_a": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "answer_b": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "winner_pass1": {
+            "enum": [
+              "A",
+              "B",
+              "tie"
+            ]
+          },
+          "winner_pass2": {
+            "enum": [
+              "A",
+              "B",
+              "tie"
+            ]
+          },
+          "final_winner": {
+            "enum": [
+              "A",
+              "B",
+              "tie"
+            ]
+          },
+          "position_consistent": {
+            "type": "boolean"
+          },
+          "reasoning_pass1": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "reasoning_pass2": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "scores_pass1": {
+            "type": "object",
+            "required": [
+              "A",
+              "B"
+            ],
+            "properties": {
+              "A": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "B": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "scores_pass2": {
+            "type": "object",
+            "required": [
+              "A",
+              "B"
+            ],
+            "properties": {
+              "A": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "B": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "minItems": 5,
+      "maxItems": 5
+    },
+    "binary_judgments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "question_id",
+          "question",
+          "model_answer",
+          "label",
+          "reasoning"
+        ],
+        "properties": {
+          "question_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "model_answer": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "label": {
+            "type": "integer",
+            "enum": [
+              0,
+              1
+            ]
+          },
+          "reasoning": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        }
+      },
+      "minItems": 10,
+      "maxItems": 10
+    },
+    "calibration": {
+      "type": "object",
+      "required": [
+        "question_ids",
+        "judge_labels",
+        "human_labels",
+        "cohen_kappa"
+      ],
+      "properties": {
+        "question_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "minItems": 10,
+          "maxItems": 10,
+          "uniqueItems": true
+        },
+        "judge_labels": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "enum": [
+              0,
+              1
+            ]
+          },
+          "minItems": 10,
+          "maxItems": 10
+        },
+        "human_labels": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "enum": [
+              0,
+              1
+            ]
+          },
+          "minItems": 10,
+          "maxItems": 10
+        },
+        "cohen_kappa": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1
+        }
+      }
+    },
+    "bias_report": {
+      "type": "object",
+      "required": [
+        "total_judged",
+        "position_bias_count",
+        "position_bias_rate",
+        "verbosity_bias",
+        "interpretation",
+        "verbosity_details"
+      ],
+      "properties": {
+        "total_judged": {
+          "const": 5
+        },
+        "position_bias_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "position_bias_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "verbosity_bias": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "interpretation": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "verbosity_details": {
+          "type": "object",
+          "required": [
+            "a_wins_a_longer",
+            "b_wins_b_longer",
+            "total_decisive"
+          ],
+          "properties": {
+            "a_wins_a_longer": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5
+            },
+            "b_wins_b_longer": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5
+            },
+            "total_decisive": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  }
+}

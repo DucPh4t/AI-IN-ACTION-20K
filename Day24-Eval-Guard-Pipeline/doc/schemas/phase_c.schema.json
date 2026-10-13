@@ -1,0 +1,464 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Phase C evidence",
+  "type": "object",
+  "required": [
+    "metadata",
+    "adversarial",
+    "clean",
+    "output_results",
+    "latency"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": [
+        "format_version",
+        "run_kind",
+        "models",
+        "created_at",
+        "source_sha256"
+      ],
+      "properties": {
+        "format_version": {
+          "const": 2
+        },
+        "run_kind": {
+          "const": "live"
+        },
+        "models": {
+          "type": "object",
+          "required": [
+            "generation",
+            "evaluator",
+            "judge",
+            "guard"
+          ],
+          "properties": {
+            "generation": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "uniqueItems": true,
+              "maxItems": 0
+            },
+            "evaluator": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "uniqueItems": true,
+              "maxItems": 0
+            },
+            "judge": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "uniqueItems": true,
+              "maxItems": 0
+            },
+            "guard": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "uniqueItems": true,
+              "minItems": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "format": "date-time"
+        },
+        "source_sha256": {
+          "type": "object",
+          "required": [
+            "adversarial_set_20.json",
+            "clean_set_8.json",
+            "output_set_4.json"
+          ],
+          "properties": {
+            "adversarial_set_20.json": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "clean_set_8.json": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "output_set_4.json": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "adversarial": {
+      "type": "object",
+      "required": [
+        "total",
+        "passed",
+        "pass_rate",
+        "results"
+      ],
+      "properties": {
+        "total": {
+          "const": 20
+        },
+        "passed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 20
+        },
+        "pass_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "input",
+              "category",
+              "expected",
+              "actual",
+              "passed",
+              "blocked_by"
+            ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "input": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "category": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "expected": {
+                "enum": [
+                  "allowed",
+                  "blocked"
+                ]
+              },
+              "actual": {
+                "enum": [
+                  "allowed",
+                  "blocked"
+                ]
+              },
+              "passed": {
+                "type": "boolean"
+              },
+              "blocked_by": {
+                "enum": [
+                  "presidio",
+                  "nemo_input",
+                  null
+                ]
+              }
+            }
+          },
+          "minItems": 20,
+          "maxItems": 20
+        }
+      }
+    },
+    "clean": {
+      "type": "object",
+      "required": [
+        "total",
+        "passed",
+        "pass_rate",
+        "results",
+        "false_positive_rate"
+      ],
+      "properties": {
+        "total": {
+          "const": 8
+        },
+        "passed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8
+        },
+        "pass_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "input",
+              "category",
+              "expected",
+              "actual",
+              "passed",
+              "blocked_by"
+            ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "input": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "category": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "expected": {
+                "enum": [
+                  "allowed",
+                  "blocked"
+                ]
+              },
+              "actual": {
+                "enum": [
+                  "allowed",
+                  "blocked"
+                ]
+              },
+              "passed": {
+                "type": "boolean"
+              },
+              "blocked_by": {
+                "enum": [
+                  "presidio",
+                  "nemo_input",
+                  null
+                ]
+              }
+            }
+          },
+          "minItems": 8,
+          "maxItems": 8
+        },
+        "false_positive_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "output_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "question",
+          "answer",
+          "expected",
+          "safe",
+          "flagged_reason",
+          "final_answer",
+          "passed"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "answer": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "expected": {
+            "enum": [
+              "safe",
+              "blocked"
+            ]
+          },
+          "safe": {
+            "type": "boolean"
+          },
+          "flagged_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "final_answer": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "passed": {
+            "type": "boolean"
+          }
+        }
+      },
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "latency": {
+      "type": "object",
+      "required": [
+        "scope",
+        "percentile_method",
+        "n_samples",
+        "warmup_runs",
+        "samples",
+        "presidio_ms",
+        "nemo_input_ms",
+        "input_guard_ms",
+        "latency_budget_ok",
+        "budget_ms"
+      ],
+      "properties": {
+        "scope": {
+          "const": "input_layers_sequential"
+        },
+        "percentile_method": {
+          "const": "linear"
+        },
+        "n_samples": {
+          "type": "integer",
+          "minimum": 20
+        },
+        "warmup_runs": {
+          "type": "integer",
+          "minimum": 2
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "presidio_ms",
+              "nemo_input_ms",
+              "input_guard_ms"
+            ],
+            "properties": {
+              "presidio_ms": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "nemo_input_ms": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "input_guard_ms": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            }
+          },
+          "minItems": 20
+        },
+        "presidio_ms": {
+          "type": "object",
+          "required": [
+            "p50",
+            "p95",
+            "p99"
+          ],
+          "properties": {
+            "p50": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "p95": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "p99": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          }
+        },
+        "nemo_input_ms": {
+          "type": "object",
+          "required": [
+            "p50",
+            "p95",
+            "p99"
+          ],
+          "properties": {
+            "p50": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "p95": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "p99": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          }
+        },
+        "input_guard_ms": {
+          "type": "object",
+          "required": [
+            "p50",
+            "p95",
+            "p99"
+          ],
+          "properties": {
+            "p50": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "p95": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "p99": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          }
+        },
+        "latency_budget_ok": {
+          "type": "boolean"
+        },
+        "budget_ms": {
+          "const": 500
+        }
+      }
+    }
+  }
+}
