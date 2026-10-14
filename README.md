@@ -51,6 +51,7 @@ Dự án được cấu trúc theo từng ngày học (Day 01 đến Day 14) v�
 | **Day 23** | [`Day23-Advance-Deep-Agents`](./Day23-Advance-Deep-Agents) | **Phase 2 — Deep Research Agent with Deep Agents & Sandbox:** Hệ thống tự động nghiên cứu học thuật phân cấp đa nguồn (arXiv, Hugging Face Daily/Search, Exa Web), cách ly môi trường Docker/Daytona sandbox, xác thực trích dẫn tự động theo thuật toán (Citation Validator & Finalizer), tổng hợp 5 báo cáo chuyên sâu đạt chuẩn 100% Rubric. |
 | **Day 24** | [`Day24-Eval-Guard-Pipeline`](./Day24-Eval-Guard-Pipeline) | **Phase 2 — LLM Evaluation & Guardrails:** Pipeline đánh giá 3 pha toàn diện (Phase A: RAGAS Evaluation 50 câu; Phase B: LLM-as-a-Judge đa tiêu chí; Phase C: NeMo/Regex Guardrails chống Prompt Injection, PII leakage, Hallucination). |
 | **Day 25** | [`Day25-Reliability-Engineering-Agent`](./Day25-Reliability-Engineering-Agent) | **Phase 2 — Reliability Engineering for Production Agents:** Cổng Gateway chịu lỗi chuẩn Production: Circuit Breaker 3 trạng thái chống retry storm, Semantic & Distributed Redis Cache chống duplicate calls, Chaos Testing & Observability (P50/P95/P99 latency, SLA/SLO tracking, recovery time). |
+| **Day 26** | [`Day26-MCP-Tools-Integration`](./Day26-MCP-Tools-Integration) | **Phase 2 — Model Context Protocol (MCP) & Tools Integration:** Phân biệt Function Calling vs MCP, xây dựng FastMCP Server (stdio & Streamable HTTP), Bearer Token Auth, Dynamic Tool Registry & Discovery, Versioning & Backward Compatibility, và Google ADK Weather Agent kết nối Remote MCP Server. |
 
 ---
 
